@@ -2,13 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_smolgu/controllers/schedule_controller.dart';
 import 'package:my_smolgu/models/task.dart';
 import 'package:my_smolgu/ui/services/theme_service.dart';
 import 'package:my_smolgu/controllers/task_controller.dart';
 
 import 'notes_page.dart';
-import 'schedule_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,12 +18,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
   final _taskController = Get.put(TaskController());
-  final _scheduleController = Get.put(ScheduleController());
 
   @override
   void initState() {
     super.initState();
-    _scheduleController.readData();
   }
 
   @override
@@ -52,8 +48,9 @@ class _HomePageState extends State<HomePage> {
               physics: const BouncingScrollPhysics(),
               children: [
                 Container(
+                  height: MediaQuery.of(context).size.height * 0.15,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                   child: Column(
                     children: [
                       Row(
@@ -115,9 +112,12 @@ class _HomePageState extends State<HomePage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   width: MediaQuery.of(context).size.width,
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height * 0.72,
+                  ),
                   decoration: BoxDecoration(
                     color: Get.isDarkMode ? Colors.black45 : Colors.white,
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                   child: Column(
                     children: [
@@ -138,9 +138,7 @@ class _HomePageState extends State<HomePage> {
                                 padding: MaterialStateProperty.all<EdgeInsets>(
                                     const EdgeInsets.all(15)),
                               ),
-                              onPressed: () {
-                                Get.to(() => const SchedulePage());
-                              },
+                              onPressed: () {},
                               child: Text("Просмотреть все",
                                   style: GoogleFonts.raleway(
                                       textStyle: TextStyle(
@@ -151,27 +149,22 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(bottom: 15),
-                            padding: const EdgeInsets.all(10),
-                            height: 230,
-                            decoration: BoxDecoration(
-                              color: Get.isDarkMode
-                                  ? Theme.of(context).backgroundColor
-                                  : const Color(0xFFF9F9FB),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text("У Вас не выбрана группа!🙃",
-                                    style: GoogleFonts.raleway()),
-                              ],
-                            ),
-                          )
-                        ],
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        height: 230,
+                        decoration: BoxDecoration(
+                          color: Get.isDarkMode
+                              ? Theme.of(context).backgroundColor
+                              : const Color(0xFFF9F9FB),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text("У Вас не выбрана группа!😏",
+                                style: GoogleFonts.raleway()),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 5),
                       Row(

@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons:
-  google_maps_flutter:
+  google_maps_flutter: ^2.1.1
   google_nav_bar:
   google_fonts:
   get:
@@ -30,7 +30,6 @@ dependencies:
   firebase_auth:
   google_sign_in:
   provider:
-  firebase_database:
   firebase_app_check:
 
 dev_dependencies:

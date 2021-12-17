@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_smolgu/ui/navigation/notes_page.dart';
 
-import 'ui/navigation/home_page.dart';
 import 'ui/navigation/modules_page.dart';
-import 'ui/navigation/navigation_page.dart';
+import 'ui/navigation/maps_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
 
   final List pages = [
     const NavigationPage(),
-    const HomePage(),
+    const NotesPage(),
     const ModulesPage(),
   ];
 
@@ -44,8 +44,8 @@ class _MainPageState extends State<MainPage> {
             ),
             BottomNavigationBarItem(
               label: "",
-              activeIcon: Icon(Icons.home_rounded),
-              icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.note_rounded),
+              icon: Icon(Icons.note_outlined),
             ),
             BottomNavigationBarItem(
               label: "",
