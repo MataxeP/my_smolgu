@@ -28,126 +28,108 @@ class _NotesPageState extends State<NotesPage> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return Scaffold(
         backgroundColor: Get.isDarkMode
             ? Theme.of(context).backgroundColor
             : const Color(0xFFD4E7FE),
-        appBar: AppBar(
-          foregroundColor: Theme.of(context).primaryColor,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          centerTitle: true,
-          leading: IconButton(
-              padding: const EdgeInsets.only(left: 24),
-              icon: const Icon(Icons.keyboard_arrow_left_outlined),
-              color: Theme.of(context).primaryColor,
-              onPressed: () {
-                Get.back();
-              }),
-          title: Text("Заметки",
-              style: GoogleFonts.raleway(
-                  textStyle: const TextStyle(fontSize: 24))),
-        ),
-        body: Stack(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              alignment: Alignment.topCenter,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [
-                        Get.isDarkMode
-                            ? Theme.of(context).backgroundColor
-                            : const Color(0xFFD4E7FE),
-                        Get.isDarkMode
-                            ? Theme.of(context).backgroundColor
-                            : const Color(0xFFF0F0F0),
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      stops: const [0.6, 0.3])),
-              height: MediaQuery.of(context).size.height,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.calendar_today,
-                          color: Get.isDarkMode
-                              ? Colors.grey
-                              : const Color(0XFF263064)),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      RichText(
-                        text: TextSpan(
-                            text: DateFormat.MMM('ru')
-                                .format(DateTime.now())
-                                .toUpperCase(),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Get.isDarkMode
-                                  ? Theme.of(context).primaryColor
-                                  : const Color(0XFF263064),
-                              fontSize: 22,
+        body: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [
+                      Get.isDarkMode
+                          ? Theme.of(context).backgroundColor
+                          : const Color(0xFFD4E7FE),
+                      Get.isDarkMode
+                          ? Theme.of(context).backgroundColor
+                          : const Color(0xFFF0F0F0),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0.6, 0.3])),
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                Container(
+                    height: MediaQuery.of(context).size.height * 0.12,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 30),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_today,
+                                color: Get.isDarkMode
+                                    ? Colors.grey
+                                    : const Color(0XFF263064)),
+                            const SizedBox(
+                              width: 15,
                             ),
-                            children: [
-                              TextSpan(
-                                text: DateFormat(' y', 'ru')
-                                    .format(DateTime.now()),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 16,
-                                  color: Get.isDarkMode
-                                      ? Theme.of(context).primaryColor
-                                      : const Color(0XFF263064),
-                                ),
+                            RichText(
+                              text: TextSpan(
+                                  text: DateFormat.MMM('ru')
+                                      .format(DateTime.now())
+                                      .toUpperCase(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Get.isDarkMode
+                                        ? Theme.of(context).primaryColor
+                                        : const Color(0XFF263064),
+                                    fontSize: 22,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: DateFormat(' y', 'ru')
+                                          .format(DateTime.now()),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 16,
+                                        color: Get.isDarkMode
+                                            ? Theme.of(context).primaryColor
+                                            : const Color(0XFF263064),
+                                      ),
+                                    ),
+                                  ]),
+                            ),
+                          ],
+                        ),
+                        GestureDetector(
+                            onTap: () async {
+                              await Get.to(() => const AddTaskPage());
+                              _taskController.getTasks();
+                            },
+                            child: Text(
+                              "Новая задача",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Get.isDarkMode
+                                    ? Theme.of(context).primaryColor
+                                    : const Color(0XFF263064),
                               ),
-                            ]),
-                      ),
+                            ))
+                      ],
+                    )),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  width: MediaQuery.of(context).size.width,
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height * 0.72,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Get.isDarkMode ? Colors.black45 : Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  child: Column(
+                    children: [
+                      _dateBar(),
+                      const SizedBox(height: 25),
                     ],
                   ),
-                  GestureDetector(
-                      onTap: () async {
-                        await Get.to(() => const AddTaskPage());
-                        _taskController.getTasks();
-                      },
-                      child: Text(
-                        "Новая задача",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Get.isDarkMode
-                              ? Theme.of(context).primaryColor
-                              : const Color(0XFF263064),
-                        ),
-                      ))
-                ],
-              ),
-            ),
-            Positioned(
-              top: 60,
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Get.isDarkMode ? Colors.black45 : Colors.white,
-                  borderRadius: BorderRadius.circular(30),
                 ),
-                child: Column(
-                  children: [
-                    Container(
-                        margin: const EdgeInsets.only(top: 15),
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: _dateBar()),
-                    const SizedBox(height: 25),
-                    _showTasks()
-                  ],
-                ),
-              ),
-            )
-          ],
-        ));
+              ],
+            )));
   }
 
   _showTasks() {

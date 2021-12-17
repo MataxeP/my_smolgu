@@ -25,17 +25,17 @@ final List<Buiding> univBuildingsList = [
       buildName: 'СмолГУ',
       address: 'улица Пржевальского, 4',
       locationCoords: const LatLng(54.784302, 32.046221),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/places_nav.jpeg"),
   Buiding(
       buildName: 'Библиотека',
       address: 'улица Пржевальского, 2А',
       locationCoords: const LatLng(54.785013, 32.047766),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/places_nav.jpeg"),
   Buiding(
       buildName: 'Многофункциональный спортивный комплекс',
       address: 'улица Пржевальского, 4Г',
       locationCoords: const LatLng(54.785516891691465, 32.047347527786265),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/places_nav.jpeg"),
 ];
 
 final List<Buiding> hostelsList = [
@@ -43,22 +43,22 @@ final List<Buiding> hostelsList = [
       buildName: 'Общежитие №1',
       address: 'улица Дзержинского, 23/1',
       locationCoords: const LatLng(54.780849, 32.036932),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/obshagi_nav.jpeg"),
   Buiding(
       buildName: 'Общежитие №2',
       address: 'улица Урицкого, 13',
       locationCoords: const LatLng(54.774602, 32.05171),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/obshagi_nav.jpeg"),
   Buiding(
       buildName: 'Общежитие №3',
       address: 'улица Кирова, 27',
       locationCoords: const LatLng(54.769549, 32.035019),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/obshagi_nav.jpeg"),
   Buiding(
       buildName: 'Общежитие №4',
       address: 'улица Пржевальского, 2А',
       locationCoords: const LatLng(54.785013, 32.047766),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/obshagi_nav.jpeg"),
 ];
 
 final List<Buiding> foodList = [
@@ -66,102 +66,102 @@ final List<Buiding> foodList = [
       buildName: '7 Слонов/Миккей',
       address: 'Большая Советская улица, 19/2',
       locationCoords: const LatLng(54.784011, 32.054063),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Русский двор',
       address: 'улица Октябрьской Революции, 1Б',
       locationCoords: const LatLng(54.781368, 32.045206),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Мандариновый гусь/Шоколад',
       address: 'улица Октябрьской Революции, 7',
       locationCoords: const LatLng(54.776389, 32.044514),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Пицца Чили',
       address: 'улица Глинки, 11',
       locationCoords: const LatLng(54.77978, 32.050784),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Кафе Дом 20',
       address: 'Большая Советская улица, 20',
       locationCoords: const LatLng(54.782049, 32.052536),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Сан-Жак',
       address: 'Чуриловский переулок, 19',
       locationCoords: const LatLng(54.778533, 32.03881),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Домино',
       address: 'улица Дзержинского, 16',
       locationCoords: const LatLng(54.780548, 32.040157),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Домино',
       address: 'проспект Гагарина, 1',
       locationCoords: const LatLng(54.777152, 32.050668),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Самовар',
       address: 'улица Ленина, 14',
       locationCoords: const LatLng(54.782422, 32.050901),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Смолка Ресторан',
       address: 'улица Ногина, 32Б',
       locationCoords: const LatLng(54.785569, 32.043661),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Квартал',
       address: 'улица Пржевальского, 6/25',
       locationCoords: const LatLng(54.784198, 32.042601),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Красное&Белое',
       address: 'Коммунистическая улица, 12',
       locationCoords: const LatLng(54.780465, 32.050452),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Красное&Белое',
       address: 'улица Исаковского, 20',
       locationCoords: const LatLng(54.779624, 32.059965),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Гута',
       address: 'Большая Советская улица, 39/11',
       locationCoords: const LatLng(54.780641, 32.052967),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Океан',
       address: 'улица Исаковского, 16',
       locationCoords: const LatLng(54.779089, 32.059543),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Продтовары',
       address: 'Коммунистическая улица, 15/2',
       locationCoords: const LatLng(54.7806, 32.054791),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Ермак',
       address: 'улица Октябрьской Революции, 3Б',
       locationCoords: const LatLng(54.777386, 32.045673),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Веста',
       address: 'улица Барклая-де-Толли, 1',
       locationCoords: const LatLng(54.779297, 32.051925),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Магазин продуктов',
       address: 'улица Бакунина, 12',
       locationCoords: const LatLng(54.786244, 32.039034),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
   Buiding(
       buildName: 'Заря',
       address: 'улица Конёнкова, 2/12',
       locationCoords: const LatLng(54.782999, 32.049024),
-      thumbNail: "assets/images/onboard-1.png"),
+      thumbNail: "assets/icons/food_nav.jpeg"),
 ];
 
 String mapStyle = '''
@@ -199,7 +199,7 @@ class _NavigationPageState extends State<NavigationPage> {
   late String elementThumbnail = univBuildingsList[0].thumbNail;
   late String elementName = univBuildingsList[0].buildName;
   late String elementAddress = univBuildingsList[0].address;
-  late Color selectedColor = Colors.red;
+  late Color selectedColor = Colors.redAccent;
 
   List<Marker> allMarkers = [];
 
@@ -224,7 +224,7 @@ class _NavigationPageState extends State<NavigationPage> {
               elementThumbnail = element.thumbNail;
               elementName = element.buildName;
               elementAddress = element.address;
-              selectedColor = Colors.red;
+              selectedColor = Colors.redAccent;
               pinPillPosition = pinVisiblePosition;
             });
           }));
@@ -272,21 +272,13 @@ class _NavigationPageState extends State<NavigationPage> {
                           GestureDetector(
                             child: Column(
                               children: [
-                                Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      color: Get.isDarkMode
-                                          ? const Color(0x54545454)
-                                          : const Color(0xE2E2E2E2),
-                                    ),
-                                    child: Container(
-                                        margin: const EdgeInsets.only(
-                                            left: 10, top: 10),
-                                        child: SvgPicture.asset(
-                                            'assets/icons/ufo-alien.svg',
-                                            height: 80,
-                                            width: 80,
-                                            fit: BoxFit.cover))),
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                        'assets/icons/places_nav.jpeg',
+                                        height: 80,
+                                        width: 80,
+                                        fit: BoxFit.cover)),
                                 const SizedBox(height: 6),
                                 Text(
                                   'Места',
@@ -322,7 +314,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                           elementThumbnail = element.thumbNail;
                                           elementName = element.buildName;
                                           elementAddress = element.address;
-                                          selectedColor = Colors.red;
+                                          selectedColor = Colors.redAccent;
                                           pinPillPosition = pinVisiblePosition;
                                         });
                                       }));
@@ -339,21 +331,13 @@ class _NavigationPageState extends State<NavigationPage> {
                           GestureDetector(
                             child: Column(
                               children: [
-                                Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      color: Get.isDarkMode
-                                          ? const Color(0x54545454)
-                                          : const Color(0xE2E2E2E2),
-                                    ),
-                                    child: Container(
-                                        margin: const EdgeInsets.only(
-                                            left: 10, top: 10),
-                                        child: SvgPicture.asset(
-                                            'assets/icons/livingroom.svg',
-                                            height: 80,
-                                            width: 80,
-                                            fit: BoxFit.cover))),
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                        'assets/icons/obshagi_nav.jpeg',
+                                        height: 80,
+                                        width: 80,
+                                        fit: BoxFit.cover)),
                                 const SizedBox(height: 6),
                                 Text(
                                   'Общаги',
@@ -387,7 +371,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                                     tilt: 50.0)));
                                         elementThumbnail = element.thumbNail;
                                         elementName = element.buildName;
-                                        selectedColor = Colors.green;
+                                        selectedColor = Colors.greenAccent;
                                         elementAddress = element.address;
                                         setState(() {
                                           pinPillPosition = pinVisiblePosition;
@@ -406,21 +390,13 @@ class _NavigationPageState extends State<NavigationPage> {
                           GestureDetector(
                             child: Column(
                               children: [
-                                Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      color: Get.isDarkMode
-                                          ? const Color(0x54545454)
-                                          : const Color(0xE2E2E2E2),
-                                    ),
-                                    child: Container(
-                                        margin: const EdgeInsets.only(
-                                            left: 10, top: 10),
-                                        child: SvgPicture.asset(
-                                            'assets/icons/soup.svg',
-                                            height: 80,
-                                            width: 80,
-                                            fit: BoxFit.cover))),
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                        'assets/icons/food_nav.jpeg',
+                                        height: 80,
+                                        width: 80,
+                                        fit: BoxFit.cover)),
                                 const SizedBox(height: 6),
                                 Text(
                                   'Еда',
@@ -441,7 +417,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                       draggable: false,
                                       icon:
                                           BitmapDescriptor.defaultMarkerWithHue(
-                                              BitmapDescriptor.hueYellow),
+                                              BitmapDescriptor.hueBlue),
                                       position: element.locationCoords,
                                       onTap: () {
                                         _controller.animateCamera(
@@ -456,7 +432,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                           elementThumbnail = element.thumbNail;
                                           elementName = element.buildName;
                                           elementAddress = element.address;
-                                          selectedColor = Colors.yellow;
+                                          selectedColor = Colors.blueAccent;
                                           pinPillPosition = pinVisiblePosition;
                                         });
                                       }));

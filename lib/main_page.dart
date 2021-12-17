@@ -44,8 +44,8 @@ class _MainPageState extends State<MainPage> {
             ),
             BottomNavigationBarItem(
               label: "",
-              activeIcon: Icon(Icons.note_rounded),
-              icon: Icon(Icons.note_outlined),
+              activeIcon: Icon(Icons.home_rounded),
+              icon: Icon(Icons.home_outlined),
             ),
             BottomNavigationBarItem(
               label: "",
