@@ -139,98 +139,144 @@ class _NotesPageState extends State<NotesPage> {
                     Container(
                         margin: const EdgeInsets.only(top: 15),
                         padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: _dateBar()),
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 10, left: 5),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20)),
+                            child: DatePicker(
+                              DateTime.now(),
+                              locale: "ru",
+                              initialSelectedDate: DateTime.now(),
+                              selectionColor: const Color(0XFF263064),
+                              selectedTextColor: Colors.white,
+                              dateTextStyle: GoogleFonts.raleway(
+                                textStyle: const TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              dayTextStyle: GoogleFonts.raleway(
+                                textStyle: const TextStyle(
+                                  fontSize: 8.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              monthTextStyle: GoogleFonts.raleway(
+                                textStyle: const TextStyle(
+                                  fontSize: 8.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              onDateChange: (date) {
+                                setState(
+                                  () {
+                                    _selectedDate = date;
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                        )),
                     const SizedBox(height: 25),
-                    _showTasks()
+                    Expanded(
+                      child: Obx(() {
+                        if (_taskController.taskList.isEmpty) {
+                          return _noTaskMsg();
+                        } else {
+                          return ListView.builder(
+                              scrollDirection: Axis.vertical,
+                              itemCount: _taskController.taskList.length,
+                              itemBuilder: (context, index) {
+                                Task task = _taskController.taskList[index];
+                                if (task.date ==
+                                    DateFormat("dd.MM.yyyy")
+                                        .format(_selectedDate)) {
+                                  return Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      GestureDetector(
+                                          onTap: () {
+                                            Get.bottomSheet(
+                                              Container(
+                                                padding: const EdgeInsets.only(
+                                                    top: 4),
+                                                height: task.isCompleted == 1
+                                                    ? SizeConfig.screenHeight *
+                                                        0.24
+                                                    : SizeConfig.screenHeight *
+                                                        0.32,
+                                                width: SizeConfig.screenWidth,
+                                                color: Get.isDarkMode
+                                                    ? darkHeaderClr
+                                                    : Colors.white,
+                                                child: Column(children: [
+                                                  Container(
+                                                    height: 6,
+                                                    width: 120,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10),
+                                                        color: Get.isDarkMode
+                                                            ? Colors.grey[600]
+                                                            : Colors.grey[300]),
+                                                  ),
+                                                  const Spacer(),
+                                                  task.isCompleted == 1
+                                                      ? Container()
+                                                      : _buildBottomSheetButton(
+                                                          label:
+                                                              "Задача завершена",
+                                                          onTap: () {
+                                                            _taskController
+                                                                .markTaskCompleted(
+                                                                    task.id!);
+                                                            Get.back();
+                                                          },
+                                                          clr: primaryClr),
+                                                  _buildBottomSheetButton(
+                                                      label: "Удалить задачу",
+                                                      onTap: () {
+                                                        _taskController
+                                                            .deleteTask(task);
+                                                        Get.back();
+                                                      },
+                                                      clr: Colors.red[300]),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                  _buildBottomSheetButton(
+                                                      label: "Закрыть",
+                                                      onTap: () {
+                                                        Get.back();
+                                                      },
+                                                      isClose: true),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                ]),
+                                              ),
+                                            );
+                                          },
+                                          child: TaskTile(task)),
+                                    ],
+                                  );
+                                } else {
+                                  return _noTaskMsg();
+                                }
+                              });
+                        }
+                      }),
+                    )
                   ],
                 ),
               ),
             )
           ],
         ));
-  }
-
-  _showTasks() {
-    return Expanded(
-      child: Obx(() {
-        if (_taskController.taskList.isEmpty) {
-          return _noTaskMsg();
-        } else {
-          return ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: _taskController.taskList.length,
-              itemBuilder: (context, index) {
-                Task task = _taskController.taskList[index];
-                if (task.date ==
-                    DateFormat("dd.MM.yyyy").format(_selectedDate)) {
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            showBottomSheet(context, task);
-                          },
-                          child: TaskTile(task)),
-                    ],
-                  );
-                } else {
-                  return _noTaskMsg();
-                }
-              });
-        }
-      }),
-    );
-  }
-
-  showBottomSheet(BuildContext context, Task task) {
-    Get.bottomSheet(
-      Container(
-        padding: const EdgeInsets.only(top: 4),
-        height: task.isCompleted == 1
-            ? SizeConfig.screenHeight * 0.24
-            : SizeConfig.screenHeight * 0.32,
-        width: SizeConfig.screenWidth,
-        color: Get.isDarkMode ? darkHeaderClr : Colors.white,
-        child: Column(children: [
-          Container(
-            height: 6,
-            width: 120,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Get.isDarkMode ? Colors.grey[600] : Colors.grey[300]),
-          ),
-          const Spacer(),
-          task.isCompleted == 1
-              ? Container()
-              : _buildBottomSheetButton(
-                  label: "Задача завершена",
-                  onTap: () {
-                    _taskController.markTaskCompleted(task.id!);
-                    Get.back();
-                  },
-                  clr: primaryClr),
-          _buildBottomSheetButton(
-              label: "Удалить задачу",
-              onTap: () {
-                _taskController.deleteTask(task);
-                Get.back();
-              },
-              clr: Colors.red[300]),
-          const SizedBox(
-            height: 20,
-          ),
-          _buildBottomSheetButton(
-              label: "Закрыть",
-              onTap: () {
-                Get.back();
-              },
-              isClose: true),
-          const SizedBox(
-            height: 20,
-          ),
-        ]),
-      ),
-    );
   }
 
   _buildBottomSheetButton(
@@ -270,13 +316,13 @@ class _NotesPageState extends State<NotesPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/icons/task.png",
+              "assets/icons/notes_task.png",
               height: 90,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Text(
-                  "У Вас до сих пор нет задач!\nСоздайте новую, чтобы стать продуктивнее.",
+                  "У Вас до сих пор нет заметок!\nСоздайте новую, чтобы стать продуктивнее.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
@@ -285,48 +331,6 @@ class _NotesPageState extends State<NotesPage> {
           ],
         ),
       ],
-    );
-  }
-
-  _dateBar() {
-    return Container(
-      margin: const EdgeInsets.only(top: 10, left: 5),
-      child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-        child: DatePicker(
-          DateTime.now(),
-          locale: "ru",
-          initialSelectedDate: DateTime.now(),
-          selectionColor: const Color(0XFF263064),
-          selectedTextColor: Colors.white,
-          dateTextStyle: GoogleFonts.raleway(
-            textStyle: const TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey,
-            ),
-          ),
-          dayTextStyle: GoogleFonts.raleway(
-            textStyle: const TextStyle(
-              fontSize: 8.0,
-              color: Colors.grey,
-            ),
-          ),
-          monthTextStyle: GoogleFonts.raleway(
-            textStyle: const TextStyle(
-              fontSize: 8.0,
-              color: Colors.grey,
-            ),
-          ),
-          onDateChange: (date) {
-            setState(
-              () {
-                _selectedDate = date;
-              },
-            );
-          },
-        ),
-      ),
     );
   }
 }
@@ -351,7 +355,22 @@ class _AddTaskPageState extends State<AddTaskPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
-      appBar: _appBar(),
+      appBar: AppBar(
+        foregroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+            padding: const EdgeInsets.only(left: 24),
+            icon: const Icon(Icons.keyboard_arrow_left_outlined),
+            color: Theme.of(context).primaryColor,
+            onPressed: () {
+              Get.back();
+            }),
+        title: Text("Новая заметка",
+            style: GoogleFonts.raleway(
+                textStyle: const TextStyle(
+                    fontSize: 24, fontWeight: FontWeight.bold))),
+      ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
@@ -375,8 +394,18 @@ class _AddTaskPageState extends State<AddTaskPage> {
                         Icons.calendar_today_rounded,
                         color: Colors.grey,
                       )),
-                      onPressed: () {
-                        _getDateFromUser();
+                      onPressed: () async {
+                        final DateTime? _pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: _selectedDate,
+                            initialDatePickerMode: DatePickerMode.day,
+                            firstDate: DateTime(2021),
+                            lastDate: DateTime(2121));
+                        if (_pickedDate != null) {
+                          setState(() {
+                            _selectedDate = _pickedDate;
+                          });
+                        }
                       },
                     ),
                   ),
@@ -392,10 +421,76 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _colorChips(),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Цвет",
+                              style: titleStyle,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Wrap(
+                              children: List<Widget>.generate(
+                                3,
+                                (int index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _selectedColor = index;
+                                      });
+                                    },
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 8.0),
+                                      child: CircleAvatar(
+                                        radius: 14,
+                                        backgroundColor: index == 0
+                                            ? primaryClr
+                                            : index == 1
+                                                ? pinkClr
+                                                : yellowClr,
+                                        child: index == _selectedColor
+                                            ? const Center(
+                                                child: Icon(
+                                                  Icons.done,
+                                                  color: Colors.white,
+                                                  size: 18,
+                                                ),
+                                              )
+                                            : Container(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).toList(),
+                            ),
+                          ]),
                       GestureDetector(
-                        onTap: () {
-                          _validateInputs();
+                        onTap: () async {
+                          if (_titleController.text.isNotEmpty &&
+                              _noteController.text.isNotEmpty) {
+                            await _taskController.addTask(
+                              task: Task(
+                                note: _noteController.text,
+                                title: _titleController.text,
+                                date: DateFormat("dd.MM.yyyy")
+                                    .format(_selectedDate),
+                                color: _selectedColor,
+                                isCompleted: 0,
+                              ),
+                            );
+                            Get.back();
+                          } else if (_titleController.text.isEmpty ||
+                              _noteController.text.isEmpty) {
+                            Get.snackbar(
+                              "Внимание!",
+                              "Всё поля должны быть заполнены.",
+                              snackPosition: SnackPosition.BOTTOM,
+                              backgroundColor: context.theme.backgroundColor,
+                            );
+                          } else {}
                         },
                         child: Container(
                           height: 60,
@@ -406,7 +501,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                           ),
                           child: Center(
                             child: Text(
-                              "Создать\nзадачу",
+                              "Создать\nзаметку",
                               textAlign: TextAlign.center,
                               style: GoogleFonts.raleway(
                                   textStyle:
@@ -427,110 +522,5 @@ class _AddTaskPageState extends State<AddTaskPage> {
         ],
       ),
     );
-  }
-
-  _validateInputs() {
-    if (_titleController.text.isNotEmpty && _noteController.text.isNotEmpty) {
-      _addTaskToDB();
-      Get.back();
-    } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
-      Get.snackbar(
-        "Внимание!",
-        "Всё поля должны быть заполнены.",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: context.theme.backgroundColor,
-      );
-    } else {}
-  }
-
-  _addTaskToDB() async {
-    await _taskController.addTask(
-      task: Task(
-        note: _noteController.text,
-        title: _titleController.text,
-        date: DateFormat("dd.MM.yyyy").format(_selectedDate),
-        color: _selectedColor,
-        isCompleted: 0,
-      ),
-    );
-  }
-
-  _colorChips() {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        "Цвет",
-        style: titleStyle,
-      ),
-      const SizedBox(
-        height: 8,
-      ),
-      Wrap(
-        children: List<Widget>.generate(
-          3,
-          (int index) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  _selectedColor = index;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: CircleAvatar(
-                  radius: 14,
-                  backgroundColor: index == 0
-                      ? primaryClr
-                      : index == 1
-                          ? pinkClr
-                          : yellowClr,
-                  child: index == _selectedColor
-                      ? const Center(
-                          child: Icon(
-                            Icons.done,
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        )
-                      : Container(),
-                ),
-              ),
-            );
-          },
-        ).toList(),
-      ),
-    ]);
-  }
-
-  _appBar() {
-    return AppBar(
-      foregroundColor: Theme.of(context).primaryColor,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-          padding: const EdgeInsets.only(left: 24),
-          icon: const Icon(Icons.keyboard_arrow_left_outlined),
-          color: Theme.of(context).primaryColor,
-          onPressed: () {
-            Get.back();
-          }),
-      title: Text("Новая задача",
-          style: GoogleFonts.raleway(
-              textStyle:
-                  const TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
-    );
-  }
-
-  _getDateFromUser() async {
-    final DateTime? _pickedDate = await showDatePicker(
-        context: context,
-        initialDate: _selectedDate,
-        initialDatePickerMode: DatePickerMode.day,
-        firstDate: DateTime(2021),
-        lastDate: DateTime(2121));
-    if (_pickedDate != null) {
-      setState(() {
-        _selectedDate = _pickedDate;
-      });
-    }
   }
 }

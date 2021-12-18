@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'ui/navigation/home_page.dart';
-import 'ui/navigation/modules_page.dart';
+import 'ui/navigation/menu_page.dart';
 import 'ui/navigation/maps_page.dart';
 
 class MainPage extends StatefulWidget {

@@ -42,35 +42,35 @@ class _ModulesPageState extends State<ModulesPage> {
               const SizedBox(height: 20),
               ProfileMenu(
                 text: "Мой профиль",
-                icon: "assets/icons/User Icon.svg",
+                icon: "assets/icons/menu_user_icon.svg",
                 press: () {
                   Get.to(() => const ProfilePage());
                 },
               ),
               ProfileMenu(
                 text: "Настройки",
-                icon: "assets/icons/Settings.svg",
+                icon: "assets/icons/menu_settings.svg",
                 press: () {
                   Get.to(() => const SettingsPage());
                 },
               ),
               ProfileMenu(
                 text: "О приложении",
-                icon: "assets/icons/about icon.svg",
+                icon: "assets/icons/menu_about.svg",
                 press: () {
                   Get.to(() => const AboutPage());
                 },
               ),
               ProfileMenu(
                 text: "Нужна помощь?",
-                icon: "assets/icons/Question mark.svg",
+                icon: "assets/icons/menu_question.svg",
                 press: () async {
                   await launch("https://vk.com/pmataxe", forceSafariVC: false);
                 },
               ),
               ProfileMenu(
                 text: "Выйти из аккаунта",
-                icon: "assets/icons/Log out.svg",
+                icon: "assets/icons/menu_logout.svg",
                 press: () {
                   final provider =
                       Provider.of<GoogleSignInProvider>(context, listen: false);
