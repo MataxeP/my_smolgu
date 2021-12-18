@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_smolgu/ui/navigation/notes_page.dart';
 
+import 'ui/navigation/home_page.dart';
 import 'ui/navigation/modules_page.dart';
 import 'ui/navigation/maps_page.dart';
 
@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
 
   final List pages = [
     const NavigationPage(),
-    const NotesPage(),
+    const HomePage(),
     const ModulesPage(),
   ];
 
