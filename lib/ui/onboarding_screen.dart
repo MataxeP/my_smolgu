@@ -132,7 +132,7 @@ class _OnboardingScreenState extends State<OnBoardingScreen>
                               child: Text(story.title,
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.visible,
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -144,7 +144,7 @@ class _OnboardingScreenState extends State<OnBoardingScreen>
                               child: Text(story.desc,
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.visible,
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: const TextStyle(
                                     letterSpacing: 1,
                                     color: Colors.black,
@@ -168,7 +168,7 @@ class _OnboardingScreenState extends State<OnBoardingScreen>
                                       child: Text(
                                         "Начать",
                                         textAlign: TextAlign.center,
-                                        style: GoogleFonts.raleway(
+                                        style: GoogleFonts.montserrat(
                                             textStyle: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 18,
@@ -183,7 +183,7 @@ class _OnboardingScreenState extends State<OnBoardingScreen>
                                 Get.to(() => const SignInPage());
                               },
                               child: Text("Уже есть аккаунт?",
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -420,7 +420,7 @@ class _SignInPageState extends State<SignInPage> {
                                         child: Text("Добро пожаловать",
                                             textAlign: TextAlign.center,
                                             overflow: TextOverflow.visible,
-                                            style: GoogleFonts.raleway(
+                                            style: GoogleFonts.montserrat(
                                                 textStyle: const TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold,
@@ -435,7 +435,7 @@ class _SignInPageState extends State<SignInPage> {
                                             "Пожалуйста, войдите в систему, чтобы получить доступ к личному кабинету",
                                             textAlign: TextAlign.center,
                                             overflow: TextOverflow.visible,
-                                            style: GoogleFonts.raleway(
+                                            style: GoogleFonts.montserrat(
                                                 textStyle: const TextStyle(
                                               letterSpacing: 1,
                                               color: Colors.black,
@@ -468,7 +468,7 @@ class _SignInPageState extends State<SignInPage> {
                                                         vertical: 15),
                                                 child: Text(
                                                     "Продолжить с Google",
-                                                    style: GoogleFonts.raleway(
+                                                    style: GoogleFonts.montserrat(
                                                         textStyle:
                                                             const TextStyle(
                                                                 color: Colors
@@ -483,7 +483,7 @@ class _SignInPageState extends State<SignInPage> {
                                         child: Text('Ещё нет аккаунта?',
                                             overflow: TextOverflow.visible,
                                             textAlign: TextAlign.center,
-                                            style: GoogleFonts.raleway(
+                                            style: GoogleFonts.montserrat(
                                                 textStyle: const TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold,
@@ -534,7 +534,7 @@ class _SignUpPageState extends State<SignUpPage> {
             scrollDirection: Axis.horizontal,
             onPageChanged: _onchanged,
             controller: _controller,
-            itemCount: 3,
+            itemCount: 2,
             itemBuilder: (context, int index) {
               if (index == 0) {
                 return Column(
@@ -602,51 +602,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     )
                   ],
                 );
-              } else if (index == 1) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
-                      "Нам нужны разрешения ☺",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0XFF263064)),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          _controller.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut);
-                        },
-                        child: Container(
-                            width: MediaQuery.of(context).size.width - 40,
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            child: Center(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15),
-                                child: Text(
-                                  "Выдать!",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.raleway(
-                                      textStyle: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                                ),
-                              ),
-                            ))),
-                  ],
-                );
               } else {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -688,7 +643,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 child: Text(
                                   "Приступить!",
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -708,7 +663,7 @@ class _SignUpPageState extends State<SignUpPage> {
               right: 0,
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(3, (int index) {
+                  children: List<Widget>.generate(2, (int index) {
                     return AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         height: 10,
@@ -736,7 +691,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               child: Text('Уже есть аккаунт?',
                                   overflow: TextOverflow.visible,
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,

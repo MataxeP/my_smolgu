@@ -46,7 +46,7 @@ class _NotesPageState extends State<NotesPage> {
                 Get.back();
               }),
           title: Text("Заметки",
-              style: GoogleFonts.raleway(
+              style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(fontSize: 24))),
         ),
         body: Stack(
@@ -150,20 +150,20 @@ class _NotesPageState extends State<NotesPage> {
                               initialSelectedDate: DateTime.now(),
                               selectionColor: const Color(0XFF263064),
                               selectedTextColor: Colors.white,
-                              dateTextStyle: GoogleFonts.raleway(
+                              dateTextStyle: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.grey,
                                 ),
                               ),
-                              dayTextStyle: GoogleFonts.raleway(
+                              dayTextStyle: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
                                   fontSize: 8.0,
                                   color: Colors.grey,
                                 ),
                               ),
-                              monthTextStyle: GoogleFonts.raleway(
+                              monthTextStyle: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
                                   fontSize: 8.0,
                                   color: Colors.grey,
@@ -265,7 +265,7 @@ class _NotesPageState extends State<NotesPage> {
                                     ],
                                   );
                                 } else {
-                                  return _noTaskMsg();
+                                  return Container();
                                 }
                               });
                         }
@@ -367,7 +367,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
               Get.back();
             }),
         title: Text("Новая заметка",
-            style: GoogleFonts.raleway(
+            style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
                     fontSize: 24, fontWeight: FontWeight.bold))),
       ),
@@ -503,7 +503,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                             child: Text(
                               "Создать\nзаметку",
                               textAlign: TextAlign.center,
-                              style: GoogleFonts.raleway(
+                              style: GoogleFonts.montserrat(
                                   textStyle:
                                       const TextStyle(color: Colors.white)),
                             ),

@@ -280,7 +280,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                 const SizedBox(height: 6),
                                 Text(
                                   'Места',
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: 16)),
@@ -339,7 +339,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                 const SizedBox(height: 6),
                                 Text(
                                   'Общаги',
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: 16)),
@@ -398,7 +398,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                 const SizedBox(height: 6),
                                 Text(
                                   'Еда',
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: 16)),
@@ -483,7 +483,7 @@ class _NavigationPageState extends State<NavigationPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(elementName,
-                                    style: GoogleFonts.raleway(
+                                    style: GoogleFonts.montserrat(
                                         textStyle: TextStyle(
                                       color: Theme.of(context)
                                           .primaryColor
@@ -492,7 +492,7 @@ class _NavigationPageState extends State<NavigationPage> {
                                       fontSize: 15,
                                     ))),
                                 Text(elementAddress,
-                                    style: GoogleFonts.raleway(
+                                    style: GoogleFonts.montserrat(
                                         textStyle:
                                             const TextStyle(color: Colors.red)))
                               ],

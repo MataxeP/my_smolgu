@@ -81,16 +81,22 @@ class _HomePageState extends State<HomePage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Привет, " + user.displayName.toString(),
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w900,
-                                  color: Get.isDarkMode
-                                      ? Theme.of(context).primaryColor
-                                      : const Color(0XFF343E87),
-                                ),
-                              ),
+                              Container(
+                                  width:
+                                      MediaQuery.of(context).size.width - 150,
+                                  child: Text(
+                                    "Привет, " + user.displayName.toString(),
+                                    maxLines: 1,
+                                    softWrap: false,
+                                    overflow: TextOverflow.fade,
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w900,
+                                      color: Get.isDarkMode
+                                          ? Theme.of(context).primaryColor
+                                          : const Color(0XFF343E87),
+                                    ),
+                                  )),
                               const SizedBox(
                                 height: 5,
                               ),
@@ -125,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("ВАШИ ЗАМЕТКИ",
-                              style: GoogleFonts.raleway(
+                              style: GoogleFonts.montserrat(
                                   textStyle: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
@@ -142,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                                 Get.to(() => const NotesPage());
                               },
                               child: Text("Просмотреть все",
-                                  style: GoogleFonts.raleway(
+                                  style: GoogleFonts.montserrat(
                                       textStyle: TextStyle(
                                           color: Get.isDarkMode
                                               ? Theme.of(context).primaryColor
@@ -169,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text("У Вас нет сохранённых заметок!😏",
-                                        style: GoogleFonts.raleway()),
+                                        style: GoogleFonts.montserrat()),
                                   ],
                                 ),
                               );
@@ -236,7 +242,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Text(
             task.isCompleted == 0 ? "TODO" : "ЗАВЕРШЕНО",
-            style: GoogleFonts.raleway(
+            style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(fontSize: 10, color: Colors.grey)),
           ),
           const SizedBox(
@@ -257,7 +263,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 task.date.toString(),
-                style: GoogleFonts.raleway(
+                style: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
                         fontSize: 12, fontWeight: FontWeight.bold)),
               ),
@@ -271,7 +277,7 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               task.title!,
               maxLines: 3,
-              style: GoogleFonts.raleway(
+              style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
                       fontSize: 15, fontWeight: FontWeight.bold)),
             ),

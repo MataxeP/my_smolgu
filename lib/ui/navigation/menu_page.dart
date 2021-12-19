@@ -31,7 +31,7 @@ class _ModulesPageState extends State<ModulesPage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           title: Text("Меню",
-              style: GoogleFonts.raleway(
+              style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(fontSize: 24))),
         ),
         body: SingleChildScrollView(
@@ -116,7 +116,7 @@ class ProfileMenu extends StatelessWidget {
               width: 22,
             ),
             const SizedBox(width: 20),
-            Expanded(child: Text(text, style: GoogleFonts.raleway())),
+            Expanded(child: Text(text, style: GoogleFonts.montserrat())),
             const Icon(Icons.arrow_forward_ios),
           ],
         ),
@@ -228,7 +228,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Get.back();
               }),
           title: Text("Настройки",
-              style: GoogleFonts.raleway(
+              style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(fontSize: 24))),
         ),
         body: Column(
@@ -241,7 +241,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Тёмная тема",
-                          style: GoogleFonts.raleway(
+                          style: GoogleFonts.montserrat(
                               textStyle: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
@@ -313,8 +313,8 @@ class AboutPageState extends State<AboutPage> {
               Get.back();
             }),
         title: Text("Инфо",
-            style:
-                GoogleFonts.raleway(textStyle: const TextStyle(fontSize: 24))),
+            style: GoogleFonts.montserrat(
+                textStyle: const TextStyle(fontSize: 24))),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -443,7 +443,7 @@ class SettingsCategory extends StatelessWidget {
   Widget headerWidget(String text) => Builder(
         builder: (context) => Text(
           text.toUpperCase(),
-          style: GoogleFonts.raleway(
+          style: GoogleFonts.montserrat(
               textStyle: TextStyle(
             color: Theme.of(context).primaryColor,
             fontWeight: FontWeight.bold,
@@ -481,8 +481,8 @@ class ProfilePageState extends State<ProfilePage> {
               Get.back();
             }),
         title: Text("Профиль",
-            style:
-                GoogleFonts.raleway(textStyle: const TextStyle(fontSize: 24))),
+            style: GoogleFonts.montserrat(
+                textStyle: const TextStyle(fontSize: 24))),
       ),
       body: Container(
         padding: const EdgeInsets.only(left: 16, top: 25, right: 16),
